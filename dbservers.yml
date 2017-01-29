@@ -4,3 +4,4 @@
     - group_vars/dbservers/main.yml
   roles:
     - { role: geerlingguy.mysql }
+    - { role: geerlingguy.redis }
