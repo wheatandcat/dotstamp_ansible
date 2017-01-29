@@ -1,0 +1,6 @@
+- hosts: utility-servers
+  become: yes
+  vars_files:
+    - group_vars/utility/main.yml
+  roles:
+    - geerlingguy.nodejs

@@ -1,0 +1,11 @@
+[web-servers]
+192.168.33.10
+
+[db-servers]
+192.168.33.10
+
+[utility-servers]
+192.168.33.10
+
+[all:vars]
+ansible_ssh_user=vagrant

@@ -1,0 +1,11 @@
+# golang
+- src: joshualund.golang
+
+# from galaxy
+- src: yatesr.timezone
+
+# from github with tag
+- src: geerlingguy.mysql
+
+# node.js
+- src: geerlingguy.nodejs

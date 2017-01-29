@@ -1,0 +1,17 @@
+mysql_root_password: super-secure-password
+mysql_databases:
+  - name: stamp
+    encoding: latin1
+    collation: latin1_general_ci
+  - name: stamp_test
+    encoding: latin1
+    collation: latin1_general_ci
+mysql_users:
+  - name: stamp
+    host: "%"
+    password: stamp
+    priv: "*.*:ALL"
+  - name: test
+    host: "%"
+    password: 
+    priv: "*.*:ALL"
