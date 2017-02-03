@@ -1,3 +1,9 @@
 - name: project directory
   become: true
-  file: path=/public state=directory owner=root group=root mode=0777
+  file: path=/home/vagrant/public state=directory owner=root group=root mode=0777
+- name: install go modules
+  become: false
+  shell: bash -lc "go get github.com/mattn/gom"
+- name: clone repo
+  become: false
+  git: repo=git@bitbucket.org:pandemo/dotstamp_server.git dest=/home/vagrant/public/dotstamp_server accept_hostkey=true
