@@ -1,4 +1,0 @@
-- hosts: web-servers
-  become: yes
-  roles:
-    - { role: joshualund.golang }

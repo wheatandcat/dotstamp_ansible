@@ -13,3 +13,4 @@ site.retry
 # Ignore all logfiles and tempfiles.
 /roles/*
 !/roles/.gitkeep
+!/roles/common

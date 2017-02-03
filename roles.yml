@@ -8,3 +8,5 @@
 - src: geerlingguy.nodejs
 # redis
 - src: geerlingguy.redis
+# git
+- src: geerlingguy.git

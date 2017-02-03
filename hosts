@@ -4,7 +4,7 @@
 [db-servers]
 192.168.33.10
 
-[utility-servers]
+[others]
 192.168.33.10
 
 [all:vars]

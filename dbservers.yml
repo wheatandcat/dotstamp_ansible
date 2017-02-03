@@ -3,5 +3,5 @@
   vars_files:
     - group_vars/dbservers/main.yml
   roles:
-    - { role: geerlingguy.mysql }
-    - { role: geerlingguy.redis }
+    - geerlingguy.mysql
+    - geerlingguy.redis

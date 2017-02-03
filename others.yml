@@ -1,6 +1,9 @@
-- hosts: utility-servers
+- hosts: others
   become: yes
   vars_files:
     - group_vars/utility/main.yml
   roles:
     - geerlingguy.nodejs
+    - joshualund.golang
+    - geerlingguy.git
+    - common
