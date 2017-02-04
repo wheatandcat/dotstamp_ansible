@@ -3,7 +3,32 @@
   file: path=/home/vagrant/public state=directory owner=root group=root mode=0777
 - name: install go modules
   become: false
-  shell: bash -lc "go get github.com/mattn/gom"
-- name: clone repo
+  command: go get {{ item }}
+  with_items:
+    - github.com/mattn/gom
+    - github.com/pilu/fresh
+    - github.com/golang/lint/golint
+    - golang.org/x/tools/cmd/goimports
+    - github.com/nsf/gocode
+    - golang.org/x/tools/cmd/gorename
+    - github.com/alecthomas/gometalinter
+    - github.com/zmb3/gogetdoc
+    - golang.org/x/tools/cmd/godoc
+    - github.com/beego/bee
+    - github.com/ziutek/mymysql/godrv
+    - github.com/Masterminds/glide
+    - bitbucket.org/liamstask/goose/cmd/goose
+- name: install go modules install glide
   become: false
-  git: repo=git@bitbucket.org:pandemo/dotstamp_server.git dest=/home/vagrant/public/dotstamp_server accept_hostkey=true
+  command: go install github.com/Masterminds/glide
+- name: clone repo dotstamp_server
+  become: false
+  git: repo=git@bitbucket.org:pandemo/dotstamp_server.git dest=/home/vagrant/go/src/dotstamp_server accept_hostkey=true
+- name: clone repo dotstamp_client
+  become: false
+  git: repo=git@bitbucket.org:pandemo/dotstamp_client.git dest=/home/vagrant/public/dotstamp_client accept_hostkey=true
+- name: make link dotstamp_server
+  file:
+    src: /home/vagrant/go/src/dotstamp_server
+    dest: /home/vagrant/public/dotstamp_server
+    state: link
