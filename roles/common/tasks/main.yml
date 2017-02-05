@@ -1,6 +1,6 @@
 - name: project directory
   become: true
-  file: path=/home/vagrant/public state=directory owner=root group=root mode=0777
+  file: path=/vagrant/project state=directory owner=root group=root mode=0777
 - name: install go modules
   become: false
   command: go get {{ item }}
@@ -18,17 +18,61 @@
     - github.com/ziutek/mymysql/godrv
     - github.com/Masterminds/glide
     - bitbucket.org/liamstask/goose/cmd/goose
-- name: install go modules install glide
+    - github.com/go-xorm/dbweb
+    - github.com/smartystreets/goconvey
+  tags:
+    - go
+- name: install go modules install
   become: false
-  command: go install github.com/Masterminds/glide
+  command: go install {{ item }}
+  with_items:
+    - github.com/Masterminds/glide
+    - github.com/go-xorm/dbweb
+  tags:
+    - go
 - name: clone repo dotstamp_server
   become: false
-  git: repo=git@bitbucket.org:pandemo/dotstamp_server.git dest=/home/vagrant/go/src/dotstamp_server accept_hostkey=true
+  git: repo=git@bitbucket.org:pandemo/dotstamp_server.git dest=/vagrant/project/dotstamp_server accept_hostkey=true
+  tags:
+    - git
 - name: clone repo dotstamp_client
   become: false
-  git: repo=git@bitbucket.org:pandemo/dotstamp_client.git dest=/home/vagrant/public/dotstamp_client accept_hostkey=true
+  git: repo=git@bitbucket.org:pandemo/dotstamp_client.git dest=/vagrant/project/dotstamp_client accept_hostkey=true
+  tags:
+    - git
 - name: make link dotstamp_server
+  become: false
   file:
-    src: /home/vagrant/go/src/dotstamp_server
-    dest: /home/vagrant/public/dotstamp_server
+    src: /home/vagrant/public/dotstamp_server
+    dest: /home/vagrant/go/src/dotstamp_server
     state: link
+  tags:
+    - git
+    - link
+- name: make link dotstamp_server css
+  become: false
+  file:
+    src: /home/vagrant/public/dotstamp_client/dist/css
+    dest: /home/vagrant/public/dotstamp_server/static/css
+    state: link
+  tags:
+    - git
+    - link
+- name: make link dotstamp_server js
+  become: false
+  file:
+    src: /home/vagrant/public/dotstamp_client/dist/js
+    dest: /home/vagrant/public/dotstamp_server/static/js
+    state: link
+  tags:
+    - git
+    - link
+- name: make link dotstamp_server fonts
+  become: false
+  file:
+    src: /home/vagrant/public/dotstamp_client/dist/fonts
+    dest: /home/vagrant/public/dotstamp_server/static/fonts
+    state: link
+  tags:
+    - git
+    - link

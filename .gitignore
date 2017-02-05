@@ -9,6 +9,7 @@
 .DS_Store
 .vagrant
 site.retry
+project/
 
 # Ignore all logfiles and tempfiles.
 /roles/*
