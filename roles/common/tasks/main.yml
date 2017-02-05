@@ -43,7 +43,7 @@
 - name: make link dotstamp_server
   become: false
   file:
-    src: /home/vagrant/public/dotstamp_server
+    src: /vagrant/project/dotstamp_server
     dest: /home/vagrant/go/src/dotstamp_server
     state: link
   tags:
@@ -52,8 +52,8 @@
 - name: make link dotstamp_server css
   become: false
   file:
-    src: /home/vagrant/public/dotstamp_client/dist/css
-    dest: /home/vagrant/public/dotstamp_server/static/css
+    src: /vagrant/project/dotstamp_client/dist/css
+    dest: /vagrant/project/dotstamp_server/static/css
     state: link
   tags:
     - git
@@ -61,8 +61,8 @@
 - name: make link dotstamp_server js
   become: false
   file:
-    src: /home/vagrant/public/dotstamp_client/dist/js
-    dest: /home/vagrant/public/dotstamp_server/static/js
+    src: /vagrant/project/dotstamp_client/dist/js
+    dest: /vagrant/project/dotstamp_server/static/js
     state: link
   tags:
     - git
@@ -70,8 +70,8 @@
 - name: make link dotstamp_server fonts
   become: false
   file:
-    src: /home/vagrant/public/dotstamp_client/dist/fonts
-    dest: /home/vagrant/public/dotstamp_server/static/fonts
+    src: /vagrant/project/dotstamp_client/dist/fonts
+    dest: /vagrant/project/dotstamp_server/static/fonts
     state: link
   tags:
     - git
