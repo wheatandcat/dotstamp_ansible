@@ -1,0 +1,13 @@
+nodejs_npm_global_packages:
+  - name: webpack
+  - name: webpack-dev-server
+  - name: jest-cli
+  - name: stylelint
+  - name: eslint
+  - name: esformatter
+open_jtalk_src_dir: /usr/local/src
+hts_engine_API_ver: hts_engine_API-1.09
+open_jtalk_ver: open_jtalk-1.09
+open_jtalk_dic_ver: open_jtalk_dic_utf_8-1.07
+hts_voice_m001_ver: hts_voice_nitech_jp_atr503_m001-1.05
+mmdAgent_Example: MMDAgent_Example-1.7

@@ -1,0 +1,192 @@
+- name: install the latest version of unzip
+  become: true
+  yum: name=unzip state=latest
+## hts_engine_APIがインストール
+- name: check exist hts_engine_API source file
+  become: true
+  command: ls -l {{open_jtalk_src_dir}}/{{hts_engine_API_ver}}.tar.gz
+  ignore_errors: True
+  register: result1
+  tags:
+    - open_jtalk
+- name: get hts_engine_API source file
+  become: true
+  command: chdir={{open_jtalk_src_dir}} wget http://downloads.sourceforge.net/hts-engine/{{hts_engine_API_ver}}.tar.gz
+  when: result1|failed
+  tags:
+    - open_jtalk
+- name: get hts_engine_API source file
+  become: true
+  command: chdir={{open_jtalk_src_dir}} tar zxvf {{hts_engine_API_ver}}.tar.gz
+  when: result1|failed
+  tags:
+    - open_jtalk
+- name: check hts_engine_API install
+  become: false
+  command: which hts_engine
+  ignore_errors: True
+  register: result2
+  tags:
+    - open_jtalk
+- name: expand hts_engine_API src
+  become: true
+  command: chdir={{open_jtalk_src_dir}} tar zxvf {{hts_engine_API_ver}}.tar.gz
+  when: result2|failed
+  tags:
+    - open_jtalk
+- name: comfigure hts_engine_API
+  become: true
+  command: chdir={{open_jtalk_src_dir}}/{{hts_engine_API_ver}} ./configure
+  when: result2|failed
+  tags:
+    - open_jtalk
+- name: make hts_engine_API
+  become: true
+  command: chdir={{open_jtalk_src_dir}}/{{hts_engine_API_ver}} make
+  when: result2|failed
+  tags:
+    - open_jtalk
+- name: install hts_engine_API
+  become: true
+  command: chdir={{open_jtalk_src_dir}}/{{hts_engine_API_ver}} make install
+  when: result2|failed
+  tags:
+    - open_jtalk
+## open_jtalkインストール
+- name: check exist open_jtalk source file
+  become: true
+  command: ls -l {{open_jtalk_src_dir}}/{{open_jtalk_ver}}.tar.gz
+  ignore_errors: True
+  register: result1
+  tags:
+    - open_jtalk
+- name: get open_jtalk source file
+  become: true
+  command: chdir={{open_jtalk_src_dir}} wget http://downloads.sourceforge.net/open-jtalk/{{open_jtalk_ver}}.tar.gz
+  when: result1|failed
+  tags:
+    - open_jtalk
+- name: get open_jtalk source file
+  become: true
+  command: chdir={{open_jtalk_src_dir}} tar zxvf {{open_jtalk_ver}}.tar.gz
+  when: result1|failed
+  tags:
+    - open_jtalk
+- name: check open_jtalk install
+  become: false
+  command: which open_jtalk
+  ignore_errors: True
+  register: result2
+  tags:
+    - open_jtalk
+- name: expand open_jtalk src
+  become: true
+  command: chdir={{open_jtalk_src_dir}} tar zxvf {{open_jtalk_ver}}.tar.gz
+  when: result2|failed
+  tags:
+    - open_jtalk
+- name: comfigure open_jtalk
+  become: true
+  command: chdir={{open_jtalk_src_dir}}/{{open_jtalk_ver}} ./configure
+  when: result2|failed
+  tags:
+    - open_jtalk
+- name: make open_jtalk
+  become: true
+  command: chdir={{open_jtalk_src_dir}}/{{open_jtalk_ver}} make
+  when: result2|failed
+  tags:
+    - open_jtalk
+- name: install open_jtalk
+  become: true
+  command: chdir={{open_jtalk_src_dir}}/{{open_jtalk_ver}} make install
+  when: result2|failed
+  tags:
+    - open_jtalk
+## 辞書設定
+- name: make open_jtalk_dic directory
+  become: true
+  file: path=/usr/local/share/open_jtalk state=directory owner=root group=root mode=0777
+  tags:
+    - open_jtalk
+- name: check exist open_jtalk_dic source file
+  become: true
+  command: ls -l {{open_jtalk_src_dir}}/{{open_jtalk_dic_ver}}.tar.gz
+  ignore_errors: True
+  register: result1
+  tags:
+    - open_jtalk
+- name: get open_jtalk_dic source file
+  become: true
+  command: chdir={{open_jtalk_src_dir}} wget http://sourceforge.net/projects/open-jtalk/files/Dictionary/open_jtalk_dic-1.07/{{open_jtalk_dic_ver}}.tar.gz
+  when: result1|failed
+  tags:
+    - open_jtalk
+- name: get open_jtalk_dic source file
+  become: true
+  command: chdir={{open_jtalk_src_dir}} tar zxvf {{open_jtalk_dic_ver}}.tar.gz
+  when: result1|failed
+  tags:
+    - open_jtalk
+- name: mv open_jtalk_dic source file
+  become: true
+  command: chdir={{open_jtalk_src_dir}} mv {{open_jtalk_dic_ver}} /usr/local/share/open_jtalk/
+  when: result1|failed
+  tags:
+    - open_jtalk
+## 音声設定
+- name: make hts_voice directory
+  become: true
+  file: path=/usr/local/share/hts_voice state=directory owner=root group=root mode=0777
+  tags:
+    - open_jtalk
+- name: check exist hts_voice m001 source file
+  become: true
+  command: ls -l {{open_jtalk_src_dir}}/{{hts_voice_m001_ver}}.tar.gz
+  ignore_errors: True
+  register: result1
+  tags:
+    - open_jtalk
+- name: get hts_voice m001 source file
+  become: true
+  command: chdir={{open_jtalk_src_dir}} wget https://sourceforge.net/projects/open-jtalk/files/HTS%20voice/{{hts_voice_m001_ver}}/{{hts_voice_m001_ver}}.tar.gz
+  when: result1|failed
+  tags:
+    - open_jtalk
+- name: get hts_voice source m001 file
+  become: true
+  command: chdir={{open_jtalk_src_dir}} tar zxvf {{hts_voice_m001_ver}}.tar.gz
+  when: result1|failed
+  tags:
+    - open_jtalk
+- name: mv hts_voice source m001 file
+  become: true
+  command: chdir={{open_jtalk_src_dir}} mv {{hts_voice_m001_ver}} /usr/local/share/hts_voice/
+  when: result1|failed
+  tags:
+    - open_jtalk
+- name: check exist hts_voice mei source file
+  become: true
+  command: ls -l {{open_jtalk_src_dir}}/{{MMDAgent_Example}}.zip
+  ignore_errors: True
+  register: result1
+  tags:
+    - open_jtalk
+- name: get hts_voice mei source file
+  become: true
+  command: chdir={{open_jtalk_src_dir}} wget https://sourceforge.net/projects/mmdagent/files/MMDAgent_Example/{{mmdAgent_Example}}/{{mmdAgent_Example}}.zip
+  when: result1|failed
+  tags:
+    - open_jtalk
+- name: get hts_voice source mei file
+  become: true
+  command: chdir={{open_jtalk_src_dir}} unzip -q {{mmdAgent_Example}}.zip
+  when: result1|failed
+  tags:
+    - open_jtalk
+- name: mv hts_voice source mei file
+  become: true
+  command: chdir={{open_jtalk_src_dir}} mv {{mmdAgent_Example}}/Voice/mei /usr/local/share/hts_voice/
+  when: result1|failed
+  tags:
+    - open_jtalk

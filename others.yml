@@ -1,9 +1,10 @@
 - hosts: others
   become: yes
   vars_files:
-    - group_vars/utility/main.yml
+    - group_vars/others/main.yml
   roles:
     - geerlingguy.nodejs
     - joshualund.golang
     - geerlingguy.git
+    - openjtalk
     - common
