@@ -1,6 +1,8 @@
 - name: install the latest version of unzip
   become: true
   yum: name=unzip state=latest
+  tags:
+    - open_jtalk
 ## hts_engine_APIがインストール
 - name: check exist hts_engine_API source file
   become: true
@@ -167,7 +169,7 @@
     - open_jtalk
 - name: check exist hts_voice mei source file
   become: true
-  command: ls -l {{open_jtalk_src_dir}}/{{MMDAgent_Example}}.zip
+  command: ls -l {{open_jtalk_src_dir}}/{{mmdAgent_Example}}.zip
   ignore_errors: True
   register: result1
   tags:
