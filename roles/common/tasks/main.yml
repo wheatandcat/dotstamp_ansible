@@ -76,3 +76,12 @@
   tags:
     - git
     - link
+- name: make link dotstamp_server images
+  become: false
+  file:
+    src: /vagrant/project/dotstamp_client/dist/images
+    dest: /vagrant/project/dotstamp_server/static/images
+    state: link
+  tags:
+    - git
+    - link

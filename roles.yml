@@ -10,3 +10,5 @@
 - src: geerlingguy.redis
 # git
 - src: geerlingguy.git
+# ntp
+- src: geerlingguy.ntp

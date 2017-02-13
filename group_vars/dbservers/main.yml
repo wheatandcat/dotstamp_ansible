@@ -13,5 +13,6 @@ mysql_users:
     priv: "*.*:ALL"
   - name: test
     host: "%"
-    password: 
+    password:
     priv: "*.*:ALL"
+redis_timeout: 0

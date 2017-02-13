@@ -6,5 +6,6 @@
     - geerlingguy.nodejs
     - joshualund.golang
     - geerlingguy.git
+    - geerlingguy.ntp
     - openjtalk
     - common
