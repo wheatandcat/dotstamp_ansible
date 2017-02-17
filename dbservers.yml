@@ -3,5 +3,6 @@
   vars_files:
     - group_vars/dbservers/main.yml
   roles:
+    - mariadb
     - geerlingguy.mysql
     - geerlingguy.redis

@@ -1,0 +1,8 @@
+- name: set mariadb.repo
+  template: src=mariadb.repo.j2 dest=/etc/yum.repos.d/mariadb.repo
+- name: mariadb run directory
+  become: true
+  file: path=/var/log/mariadb state=directory owner=root group=root mode=0777
+- name: mariadb log directory
+  become: true
+  file: path=/var/run/mariadb state=directory owner=root group=root mode=0777
