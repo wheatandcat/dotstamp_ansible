@@ -85,3 +85,14 @@
   tags:
     - git
     - link
+- name: mysql install Mroonga
+  become: false
+  ignore_errors: True
+  shell: mysql -ustamp -pstamp stamp -e"INSTALL PLUGIN Mroonga SONAME 'ha_mroonga.so';"
+  tags:
+    - mysql
+- name: cron contribution total follow task
+  become: true
+  cron: name="contribution total follow" day="*" hour="*" minute="*/15" job="go run /home/vagrant/go/src/dotstamp_server/tasks/contributionTotalFollows/main.go"
+  tags:
+    - cron
