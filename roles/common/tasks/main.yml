@@ -93,6 +93,6 @@
     - mysql
 - name: cron contribution total follow task
   become: true
-  cron: name="contribution total follow" day="*" hour="*" minute="*/15" job="go run /home/vagrant/go/src/dotstamp_server/tasks/contributionTotalFollows/main.go"
+  cron: name="contribution total follow" user=vagrant day="*" hour="*" minute="*/15" job="go run /home/vagrant/go/src/dotstamp_server/tasks/contributionTotalFollows/main.go"
   tags:
     - cron

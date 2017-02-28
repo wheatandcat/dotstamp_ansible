@@ -10,6 +10,7 @@
 .vagrant
 site.retry
 project/
+metas/
 
 # Ignore all logfiles and tempfiles.
 /roles/*
