@@ -85,6 +85,36 @@
   tags:
     - git
     - link
+- name: make dir open jtalk
+  become: false
+  file: path=/vagrant/project/dotstamp_server/tool/open-jtalk state=directory owner=vagrant group=root mode=0777
+  tags:
+    - git
+    - link
+- name: make dir open jtalk voice
+  become: false
+  file: path=/vagrant/project/dotstamp_server/tool/open-jtalk/voice state=directory owner=vagrant group=root mode=0777
+  tags:
+    - git
+    - link
+- name: make link open jtalk dic
+  become: false
+  file:
+    src: /usr/local/share/open_jtalk/{{open_jtalk_dic_ver}}
+    dest: /vagrant/project/dotstamp_server/tool/open-jtalk/dic
+    state: link
+  tags:
+    - git
+    - link
+- name: make link open jtalk mei voice
+  become: false
+  file:
+    src: /usr/local/share/hts_voice/mei
+    dest: /vagrant/project/dotstamp_server/tool/open-jtalk/voice/mei
+    state: link
+  tags:
+    - git
+    - link
 - name: mysql install Mroonga
   become: false
   ignore_errors: True
@@ -93,6 +123,6 @@
     - mysql
 - name: cron contribution total follow task
   become: true
-  cron: name="contribution total follow" user=vagrant day="*" hour="*" minute="*/15" job="go run /home/vagrant/go/src/dotstamp_server/tasks/contributionTotalFollows/main.go"
+  cron: name="contribution total follow" user=vagrant day="*" hour="*" minute="*/15" job="/home/vagrant/go/src/dotstamp_server/tasks/contributionTotalFollows/contributionTotalFollows >/dev/null 2>&1"
   tags:
     - cron

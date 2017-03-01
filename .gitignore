@@ -11,6 +11,8 @@
 site.retry
 project/
 metas/
+bin/
+goleveldb_data/
 
 # Ignore all logfiles and tempfiles.
 /roles/*
@@ -18,3 +20,4 @@ metas/
 !/roles/common
 !/roles/openjtalk
 !/roles/mariadb
+!/roles/sox

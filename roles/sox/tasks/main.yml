@@ -1,0 +1,5 @@
+- name: Install the sox
+  become: true
+  yum: name=sox state=latest
+  tags:
+    - sox
