@@ -1,0 +1,51 @@
+## hts_engine_APIがインストール
+- name: check exist lame source file
+  become: true
+  command: ls -l {{lame_src_dir}}/{{lame_ver}}.tar.gz
+  ignore_errors: True
+  register: result1
+  tags:
+    - lame
+- name: get lame source file
+  become: true
+  command: chdir={{lame_src_dir}} wget https://sourceforge.net/projects/lame/files/lame/3.99/{{lame_ver}}.tar.gz
+  when: result1|failed
+  tags:
+    - lame
+- name: get lame source file
+  become: true
+  command: chdir={{lame_src_dir}} tar zxvf {{lame_ver}}.tar.gz
+  when: result1|failed
+  tags:
+    - lame
+- name: check lame install
+  become: false
+  command: which lame
+  ignore_errors: True
+  register: result2
+  tags:
+    - lame
+- name: expand lame src
+  become: true
+  command: chdir={{lame_src_dir}} tar zxvf {{lame_ver}}.tar.gz
+  when: result2|failed
+  tags:
+    - lame
+- name: comfigure lame
+  become: true
+  command: chdir={{lame_src_dir}}/{{lame_ver}} ./configure
+  when: result2|failed
+  tags:
+    - lame
+- name: make lame
+  become: true
+  command: chdir={{lame_src_dir}}/{{lame_ver}} make
+  when: result2|failed
+  tags:
+    - lame
+- name: install lame
+  become: true
+  command: chdir={{lame_src_dir}}/{{lame_ver}} make install
+  when: result2|failed
+  tags:
+    - lame

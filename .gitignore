@@ -21,3 +21,4 @@ goleveldb_data/
 !/roles/openjtalk
 !/roles/mariadb
 !/roles/sox
+!/roles/lame
