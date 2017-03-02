@@ -115,6 +115,15 @@
   tags:
     - git
     - link
+- name: make link open jtalk m100 voice
+  become: false
+  file:
+    src: /usr/local/share/hts_voice/hts_voice_nitech_jp_atr503_m001-1.05/
+    dest: /vagrant/project/dotstamp_server/tool/open-jtalk/voice/m100
+    state: link
+  tags:
+    - git
+    - link
 - name: mysql install Mroonga
   become: false
   ignore_errors: True
