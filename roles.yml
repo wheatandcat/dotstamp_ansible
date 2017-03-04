@@ -12,3 +12,5 @@
 - src: geerlingguy.git
 # ntp
 - src: geerlingguy.ntp
+# nginx
+- src: geerlingguy.nginx

@@ -1,0 +1,14 @@
+nginx_vhosts:
+  - listen: "80"
+    server_name: "localhost"
+    access_log: "/var/log/nginx/access.log"
+    error_log: "/var/log/nginx/error.log"
+    extra_parameters: |
+      location / {
+          proxy_pass http://127.0.0.1:8080;
+      }
+nginx_remove_default_vhost: true
+nginx_vhosts_filename: "vhosts.conf"
+
+nginx_error_log: "/var/log/nginx/error.log warn"
+nginx_access_log: "/var/log/nginx/access.log main"
