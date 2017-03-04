@@ -4,3 +4,4 @@
     - group_vars/web/main.yml
   roles:
     - geerlingguy.nginx
+    - nickhammond.logrotate

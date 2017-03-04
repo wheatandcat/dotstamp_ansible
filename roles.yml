@@ -14,3 +14,5 @@
 - src: geerlingguy.ntp
 # nginx
 - src: geerlingguy.nginx
+# logrotate
+- src: nickhammond.logrotate
