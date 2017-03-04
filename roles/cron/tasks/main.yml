@@ -1,0 +1,5 @@
+- name: cron contribution total follow task
+  become: true
+  cron: name="contribution total follow" user=vagrant day="*" hour="*" minute="*/15" job="/home/vagrant/go/src/dotstamp_server/tasks/contributionTotalFollows/contributionTotalFollows >/dev/null 2>&1"
+  tags:
+    - cron

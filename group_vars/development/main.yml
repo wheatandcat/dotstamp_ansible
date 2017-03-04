@@ -1,0 +1,7 @@
+nodejs_npm_global_packages:
+  - name: webpack
+  - name: webpack-dev-server
+  - name: jest-cli
+  - name: stylelint
+  - name: eslint
+  - name: esformatter

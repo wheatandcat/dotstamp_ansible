@@ -1,7 +1,10 @@
-[web-servers]
+[web]
 192.168.33.10
 
-[db-servers]
+[db]
+192.168.33.10
+
+[batch]
 192.168.33.10
 
 [others]
@@ -9,3 +12,4 @@
 
 [all:vars]
 ansible_ssh_user=vagrant
+stage=development

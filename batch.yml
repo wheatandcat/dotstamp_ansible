@@ -1,0 +1,4 @@
+- hosts: batch
+  become: yes
+  roles:
+    - cron

@@ -3,11 +3,8 @@
   vars_files:
     - group_vars/others/main.yml
   roles:
-    - geerlingguy.nodejs
-    - joshualund.golang
     - geerlingguy.git
     - geerlingguy.ntp
     - sox
     - openjtalk
     - lame
-    - common

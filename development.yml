@@ -1,0 +1,8 @@
+- hosts: development
+  become: yes
+  vars_files:
+    - group_vars/development/main.yml
+  roles:
+    - geerlingguy.nodejs
+    - joshualund.golang
+    - common

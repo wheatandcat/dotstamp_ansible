@@ -1,8 +1,9 @@
-- hosts: db-servers
+- hosts: db
   become: yes
   vars_files:
-    - group_vars/dbservers/main.yml
+    - group_vars/db/main.yml
   roles:
     - mariadb
     - geerlingguy.mysql
     - geerlingguy.redis
+    - mysql
