@@ -1,7 +1,7 @@
 - hosts: others
   become: yes
   vars_files:
-    - group_vars/others/main.yml
+    - group_vars/others.yml
   roles:
     - geerlingguy.git
     - geerlingguy.ntp

@@ -25,3 +25,4 @@ goleveldb_data/
 !/roles/development
 !/roles/cron
 !/roles/mysql
+!/roles/mysqldump

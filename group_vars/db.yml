@@ -1,0 +1,18 @@
+mariadb_ver: 10.1
+mysql_packages:
+  - mariadb
+  - MariaDB-server
+  - MariaDB-client
+mysql_root_home: /root
+mysql_root_username: root
+mysql_root_password: "{{ env_mysql_root_user_password }}"
+mysql_root_password_update: yes
+mysql_databases:
+  - name: stamp
+  - name: stamp_test
+mysql_users:
+  - name: "{{ env_mysql_users_name }}"
+    host: "%"
+    password: "{{ env_mysql_users_password }}"
+    priv: "*.*:ALL"
+redis_timeout: 0

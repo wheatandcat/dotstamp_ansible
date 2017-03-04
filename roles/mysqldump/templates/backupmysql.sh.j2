@@ -1,0 +1,12 @@
+#!/bin/sh
+
+umask 077
+
+period={{mysql_back_up_days}}
+dirpath="{{mysql_backup_dir}}"
+filename=`date +%Y-%m-%d`
+
+mysqldump --opt --single-transaction {{mysql_dump_database_name}} | gzip > $dirpath/$filename.sql.gz
+
+oldfile=`date --date "$period days ago" +%Y-%m-%d`
+rm -f $dirpath/$oldfile.sql.gz

@@ -1,4 +1,3 @@
 - include: db.yml
-- include: batch.yml
 - include: others.yml
 - include: development.yml

@@ -1,8 +1,8 @@
 # golang
 - src: joshualund.golang
-# from galaxy
+# timezone
 - src: yatesr.timezone
-# from github with tag
+# mysl
 - src: geerlingguy.mysql
 # node.js
 - src: geerlingguy.nodejs

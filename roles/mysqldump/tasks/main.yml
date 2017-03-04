@@ -1,0 +1,9 @@
+- name: make mysqldump dir
+  become: true
+  file: path=/backup/sql state=directory owner=root group=root mode=0777
+- name: make backupmysql.sh
+  become: true
+  template: src=backupmysql.sh.j2 dest=/root/backupmysql.sh mode=0700
+- name: cron mysqlbackup
+  become: true
+  cron: name="mysqlbackup" user=root day="*" hour="3" minute="0" job="/root/backupmysql.sh >/dev/null 2>&1"

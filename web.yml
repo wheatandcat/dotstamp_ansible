@@ -1,7 +1,7 @@
 - hosts: web
   become: yes
   vars_files:
-    - group_vars/web/main.yml
+    - group_vars/web.yml
   roles:
     - geerlingguy.nginx
     - nickhammond.logrotate
