@@ -18,3 +18,5 @@
 - src: nickhammond.logrotate
 # supervisor
 - src: tersmitten.supervisor
+# docker
+- src: marvinpinto.docker

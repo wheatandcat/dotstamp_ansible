@@ -8,7 +8,7 @@
 /.bundle
 .DS_Store
 .vagrant
-site.retry
+*.retry
 project/
 metas/
 bin/
@@ -26,3 +26,4 @@ goleveldb_data/
 !/roles/cron
 !/roles/mysql
 !/roles/mysqldump
+!/roles/nginx
