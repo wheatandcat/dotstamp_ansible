@@ -17,3 +17,5 @@ env_mysql_users_name=stamp
 env_mysql_users_password=stamp
 env_mysql_root_user_password=root
 env_mysqldump_system_password=mysqldump
+env_server_bin=/home/vagrant/go/src/dotstamp_server/dotstamp_server
+env_server_user=vagrant
