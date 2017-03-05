@@ -16,3 +16,5 @@
 - src: geerlingguy.nginx
 # logrotate
 - src: nickhammond.logrotate
+# supervisor
+- src: tersmitten.supervisor
