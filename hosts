@@ -19,3 +19,5 @@ env_mysql_root_user_password=root
 env_mysqldump_system_password=mysqldump
 env_server_bin=/home/vagrant/go/src/dotstamp_server/dotstamp_server
 env_server_user=vagrant
+env_server_blue_port=8080
+env_server_green_port=8080

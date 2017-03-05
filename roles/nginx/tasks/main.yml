@@ -1,0 +1,9 @@
+- name: make nginx.conf blue
+  become: true
+  template: src=vhosts.conf_blue.j2 dest=/root/nginx_blue.conf mode=0722
+- name: make nginx.conf green
+  become: true
+  template: src=vhosts.conf_green.j2 dest=/root/nginx_green.conf mode=0722
+- name: make set active server shell
+  become: true
+  template: src=set-active-sever.sh.j2 dest=/root/active-sever.sh mode=0700

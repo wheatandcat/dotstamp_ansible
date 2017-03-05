@@ -1,0 +1,4 @@
+filename="nginx_${1}.conf"
+
+cp -r /root/$filename /etc/nginx/conf.d/vhosts.conf
+nginx -s reload
