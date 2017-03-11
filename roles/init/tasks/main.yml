@@ -1,0 +1,73 @@
+- name: Add new user
+  user:
+    name: "{{ env_ssh_user }}"
+    groups: wheel
+    password: "{{ env_ssh_user_passwd }}"
+    generate_ssh_key: yes
+    ssh_key_bits: 2048
+- name: Create an authorized_keys file
+  command: /bin/cp /home/{{ env_ssh_user }}/.ssh/id_rsa.pub /home/{{ env_ssh_user }}/.ssh/authorized_keys
+- name: Change attributes of an authorized_keys file
+  file:
+    path: /home/{{ env_ssh_user }}/.ssh/authorized_keys
+    owner: "{{ env_ssh_user }}"
+    group: "{{ env_ssh_user }}"
+    mode: 0600
+- name: Allow wheel group to use sudo
+  lineinfile:
+    dest: /etc/sudoers
+    state: present
+    insertafter: "^# %wheel\\s+ALL=\\(ALL\\)\\s+NOPASSWD:\\s+ALL"
+    line: "%wheel ALL=(ALL) NOPASSWD: ALL"
+    validate: "visudo -cf %s"
+    backup: yes
+- name: Fobid root to access via ssh
+  lineinfile:
+    dest: /etc/ssh/sshd_config
+    state: present
+    regexp: "^PermitRootLogin without-password"
+    line: "PermitRootLogin no"
+    backrefs: yes
+    validate: "sshd -T -f %s"
+    backup: yes
+  notify:
+    - restart sshd
+- name: Permit only specific user to access via ssh
+  lineinfile:
+    dest: /etc/ssh/sshd_config
+    state: present
+    insertafter: "^PasswordAuthentication no"
+    regexp: "^AllowUsers"
+    line: "AllowUsers {{ env_ssh_user }}"
+    validate: "sshd -T -f %s"
+    backup: yes
+  notify:
+    - restart sshd
+- name: Change ssh port number
+  lineinfile:
+    dest: /etc/ssh/sshd_config
+    state: present
+    insertafter: "^#Port 22"
+    regexp: "^Port"
+    line: "Port {{ env_ssh_port }}"
+    validate: "sshd -T -f %s"
+    backup: yes
+  notify:
+    - restart sshd
+- name: Change acceptable tcp port for ssh on iptables
+  firewalld: port={{ env_ssh_port }}/tcp permanent=true state=enabled immediate=yes
+- name: shutdown ssh port
+  firewalld: service=sshd permanent=true state=disabled immediate=yes
+- name: Retrieve a private key from remote host
+  fetch:
+    src: /home/{{ env_ssh_user }}/.ssh/id_rsa
+    dest: fetch/private_key-{{ env_ansible_hostname }}
+    validate_md5: true
+    fail_on_missing: true
+    flat: true
+- name: Permissive selinux
+  selinux: policy=targeted state=permissive
+- name: test connection (before reboot)
+  ping:
+- name: reboot!
+  command: shutdown -r now

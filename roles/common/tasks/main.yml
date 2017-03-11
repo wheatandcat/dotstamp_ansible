@@ -5,8 +5,6 @@
   become: false
   command: go get {{ item }}
   with_items:
-    - github.com/mattn/gom
-    - github.com/pilu/fresh
     - github.com/golang/lint/golint
     - golang.org/x/tools/cmd/goimports
     - github.com/nsf/gocode
@@ -81,6 +79,24 @@
   file:
     src: /vagrant/project/dotstamp_client/dist/images
     dest: /vagrant/project/dotstamp_server/static/images
+    state: link
+  tags:
+    - git
+    - link
+- name: make link dotstamp_server json
+  become: false
+  file:
+    src: /vagrant/project/dotstamp_client/dist/json
+    dest: /vagrant/project/dotstamp_server/static/json
+    state: link
+  tags:
+    - git
+    - link
+- name: make link dotstamp_server txt
+  become: false
+  file:
+    src: /vagrant/project/dotstamp_client/dist/txt
+    dest: /vagrant/project/dotstamp_server/static/txt
     state: link
   tags:
     - git

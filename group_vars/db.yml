@@ -1,4 +1,5 @@
 mariadb_ver: 10.1
+mysql_port: "{{ env_mysql_port }}"
 mysql_packages:
   - mariadb
   - MariaDB-server

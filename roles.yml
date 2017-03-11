@@ -16,7 +16,9 @@
 - src: geerlingguy.nginx
 # logrotate
 - src: nickhammond.logrotate
+# firewall
+- src: geerlingguy.firewall
+# pip
+- src: futurice.pip
 # supervisor
-- src: tersmitten.supervisor
-# docker
-- src: marvinpinto.docker
+- src: futurice.supervisor

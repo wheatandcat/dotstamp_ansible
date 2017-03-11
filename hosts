@@ -10,9 +10,13 @@
 [others]
 192.168.33.10
 
+[local]
+192.168.33.10
+
 [all:vars]
 stage=local
 ansible_ssh_user=vagrant
+env_mysql_port=3306
 env_mysql_users_name=stamp
 env_mysql_users_password=stamp
 env_mysql_root_user_password=root
@@ -20,4 +24,6 @@ env_mysqldump_system_password=mysqldump
 env_server_bin=/home/vagrant/go/src/dotstamp_server/dotstamp_server
 env_server_user=vagrant
 env_server_blue_port=8080
-env_server_green_port=8080
+env_server_green_port=8081
+env_ssh_port=22
+end_server_src=/vagrant/project/dotstamp_server

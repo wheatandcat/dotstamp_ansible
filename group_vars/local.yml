@@ -5,3 +5,4 @@ nodejs_npm_global_packages:
   - name: stylelint
   - name: eslint
   - name: esformatter
+  - name: webpack-bundle-size-analyzer

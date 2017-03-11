@@ -13,6 +13,7 @@ project/
 metas/
 bin/
 goleveldb_data/
+fitch/*
 
 # Ignore all logfiles and tempfiles.
 /roles/*
@@ -22,8 +23,10 @@ goleveldb_data/
 !/roles/mariadb
 !/roles/sox
 !/roles/lame
-!/roles/development
 !/roles/cron
 !/roles/mysql
 !/roles/mysqldump
 !/roles/nginx
+!/roles/init
+!/roles/myProject
+!/roles/supervisord

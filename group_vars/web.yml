@@ -10,17 +10,32 @@ nginx_vhosts:
 nginx_remove_default_vhost: true
 nginx_vhosts_filename: "vhosts.conf"
 nginx_error_log: "/var/log/nginx/error.log warn"
-nginx_access_log: "/var/log/nginx/access.log main"
+nginx_access_log: "/var/log/nginx/access.log "
 logrotate_scripts:
   - name: nginx
     path: /var/log/nginx/*.log
     options:
       - weekly
       - size 25M
-      - rotate 7
+      - rotate 4
       - missingok
       - compress
       - delaycompress
       - copytruncate
     scripts:
       postrotate: "[ -s /run/nginx.pid ] && kill -USR1 `cat /run/nginx.pid`"
+  - name: server
+    path: "{{ env_server_bin }}/logs/*.log"
+    options:
+      - weekly
+      - size 25M
+      - rotate 4
+      - missingok
+      - compress
+      - delaycompress
+      - copytruncate
+firewall_allowed_tcp_ports:
+  - "80"
+  - "{{ env_ssh_port }}"
+  - "{{ env_mysql_port }}"
+  

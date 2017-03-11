@@ -1,5 +1,5 @@
 - name: mysql install Mroonga
-  become: false
+  become: true
   ignore_errors: True
   shell: mysql -ustamp -pstamp stamp -e"INSTALL PLUGIN Mroonga SONAME 'ha_mroonga.so';"
   tags:
