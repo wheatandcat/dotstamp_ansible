@@ -1,0 +1,10 @@
+- hosts: local
+  become: yes
+  vars_files:
+    - group_vars/local.yml
+  roles:
+    - geerlingguy.git
+    - geerlingguy.ntp
+    - joshualund.golang
+    - geerlingguy.nodejs
+    - common

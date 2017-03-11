@@ -5,4 +5,6 @@
   roles:
     - geerlingguy.nginx
     - nickhammond.logrotate
-    - nginx
+    - geerlingguy.firewall
+    - futurice.pip
+    - futurice.supervisor

@@ -3,8 +3,7 @@
   vars_files:
     - group_vars/others.yml
   roles:
-    - geerlingguy.git
-    - geerlingguy.ntp
+    - myProject
     - sox
     - openjtalk
     - lame

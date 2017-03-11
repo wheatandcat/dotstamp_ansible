@@ -1,0 +1,4 @@
+- hosts: init
+  become: yes
+  roles:
+    - init
