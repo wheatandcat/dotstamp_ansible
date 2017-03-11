@@ -14,6 +14,7 @@ metas/
 bin/
 goleveldb_data/
 fitch/*
+production
 
 # Ignore all logfiles and tempfiles.
 /roles/*
