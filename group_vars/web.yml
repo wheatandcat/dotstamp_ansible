@@ -1,6 +1,6 @@
 nginx_vhosts:
   - listen: "80"
-    server_name: "localhost"
+    server_name: "dotstamp.com"
     access_log: "/var/log/nginx/access.log"
     error_log: "/var/log/nginx/error.log"
     extra_parameters: |
@@ -34,8 +34,17 @@ logrotate_scripts:
       - compress
       - delaycompress
       - copytruncate
+  - name: supervisord
+    path: "/var/log/supervisord/*.log"
+    options:
+      - weekly
+      - size 25M
+      - rotate 4
+      - missingok
+      - compress
+      - delaycompress
+      - copytruncate
 firewall_allowed_tcp_ports:
   - "80"
   - "{{ env_ssh_port }}"
   - "{{ env_mysql_port }}"
-  
