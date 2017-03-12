@@ -15,6 +15,7 @@ bin/
 goleveldb_data/
 fitch/*
 production
+init
 
 # Ignore all logfiles and tempfiles.
 /roles/*

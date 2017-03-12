@@ -3,7 +3,6 @@
   vars_files:
     - group_vars/others.yml
   roles:
-    - myProject
     - sox
     - openjtalk
     - lame

@@ -30,12 +30,12 @@
     - go
 - name: clone repo dotstamp_server
   become: false
-  git: repo=git@bitbucket.org:pandemo/dotstamp_server.git dest=/vagrant/project/dotstamp_server accept_hostkey=true
+  git: repo=git@github.com:wheatandcat/dotstamp_server.git dest=/vagrant/project/dotstamp_server accept_hostkey=true
   tags:
     - git
 - name: clone repo dotstamp_client
   become: false
-  git: repo=git@bitbucket.org:pandemo/dotstamp_client.git dest=/vagrant/project/dotstamp_client accept_hostkey=true
+  git: repo=git@github.com:wheatandcat/dotstamp_client.git dest=/vagrant/project/dotstamp_client accept_hostkey=true
   tags:
     - git
 - name: make link dotstamp_server
