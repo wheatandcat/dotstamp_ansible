@@ -6,4 +6,9 @@
   template: src=backupmysql.sh.j2 dest=/root/backupmysql.sh mode=0700
 - name: cron mysqlbackup
   become: true
-  cron: name="mysqlbackup" user=root day="*" hour="3" minute="0" job="/root/backupmysql.sh >/dev/null 2>&1"
+  cron:
+      name: "mysqlbackup"
+      user: "root"
+      hour: "3"
+      minute: "0"
+      job: "/root/backupmysql.sh >/dev/null 2>&1"
