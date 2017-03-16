@@ -25,7 +25,7 @@ logrotate_scripts:
     scripts:
       postrotate: "[ -s /run/nginx.pid ] && kill -USR1 `cat /run/nginx.pid`"
   - name: server
-    path: "{{ env_server_bin }}/logs/*.log"
+    path: "{{ env_server_logs }}/*.log"
     options:
       - weekly
       - size 25M
@@ -34,7 +34,6 @@ logrotate_scripts:
       - compress
       - delaycompress
       - copytruncate
-<<<<<<< HEAD
   - name: supervisord
     path: "/var/log/supervisord/*.log"
     options:
@@ -45,13 +44,7 @@ logrotate_scripts:
       - compress
       - delaycompress
       - copytruncate
-=======
->>>>>>> c37d739da80856a0f818a75d9e832fd18aaf9032
 firewall_allowed_tcp_ports:
   - "80"
   - "{{ env_ssh_port }}"
   - "{{ env_mysql_port }}"
-<<<<<<< HEAD
-=======
-  
->>>>>>> c37d739da80856a0f818a75d9e832fd18aaf9032

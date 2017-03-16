@@ -26,4 +26,6 @@ env_server_user=vagrant
 env_server_blue_port=8080
 env_server_green_port=8081
 env_ssh_port=22
-end_server_src=/vagrant/project/dotstamp_server
+env_server_src=/vagrant/project/dotstamp_server
+env_server_logs=/vagrant/project/dotstamp_server/logs
+env_tasks=/home/vagrant/go/src/dotstamp_server/tasks
