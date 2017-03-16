@@ -4,6 +4,12 @@
 
 ## 概要
 .stampの環境構築リポジトリ
+## projectリポジトリ一覧
+* サーバーサイド:[dotstamp_server](https://github.com/wheatandcat/dotstamp_server)
+* クライアントサイド：[dotstamp_client](https://github.com/wheatandcat/dotstamp_client)
+* 環境構築：[dotstamp_ansible](https://github.com/wheatandcat/dotstamp_ansible)
+* デプロイスクリプト：[dotstamp_deploy_script](https://github.com/wheatandcat/dotstamp_deploy_script)
+* デプロイ環境構築：[dotstamp_deploy_ansible](https://github.com/wheatandcat/dotstamp_deploy_ansible)
 ## 事前準備
 実行には以下が必要です
 * Ansible
@@ -37,7 +43,7 @@ Ansibleでローカル環境構築
 ansible-galaxy install -p ./roles -r roles.yml
 ansible-playbook -i hosts site.yml
 ```
-### 各環境構築系
+## 各環境構築系
 xxx=環境ファイル
 
 DBサーバ
@@ -56,3 +62,6 @@ ansible-playbook -i xxx batch.yml
 ```
 ansible-playbook -i xxx init.yml
 ```
+## ライセンス
+BSDライセンス
+
