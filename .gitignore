@@ -16,6 +16,7 @@ goleveldb_data/
 fitch/*
 production
 init
+/fetch/*
 
 # Ignore all logfiles and tempfiles.
 /roles/*
