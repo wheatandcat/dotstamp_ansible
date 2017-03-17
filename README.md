@@ -4,6 +4,7 @@
 
 ## 概要
 .stampの環境構築リポジトリ
+webサービス：[.stamp](http://dotstamp.com/)
 ## projectリポジトリ一覧
 * サーバーサイド:[dotstamp_server](https://github.com/wheatandcat/dotstamp_server)
 * クライアントサイド：[dotstamp_client](https://github.com/wheatandcat/dotstamp_client)
