@@ -78,10 +78,6 @@ ansible-playbook -i xxx init.yml
 ```
 /project/logs/
 ```
-### アプリログ
-```
-/project/logs/
-```
 ### mysqlバックアップ
 ```
 /backup/sql
