@@ -85,7 +85,7 @@ ansible-playbook -i xxx init.yml
 ```
 ### mysqlバックアップ
 ```
-/backup/sql
+/backup/sql/
 ```
 ## ライセンス
 BSDライセンス
