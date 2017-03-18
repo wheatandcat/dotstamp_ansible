@@ -39,6 +39,11 @@ Ansibleの接続確認
 ```
 ansible all -i hosts -m ping
 ```
+※繋がらないときは、下記を実行
+```
+sudo systemctl restart network.service
+ip a
+```
 Ansibleでローカル環境構築
 ```
 ansible-galaxy install -p ./roles -r roles.yml
