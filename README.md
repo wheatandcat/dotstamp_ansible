@@ -63,6 +63,29 @@ ansible-playbook -i xxx batch.yml
 ```
 ansible-playbook -i xxx init.yml
 ```
+## 本番ログ
+### Nginx
+```
+/var/log/nginx/access.log
+/var/log/nginx/error.log
+```
+### supervisord
+```
+/var/log/supervisord/blue.log
+/var/log/supervisord/green.log
+```
+### アプリログ
+```
+/project/logs/
+```
+### アプリログ
+```
+/project/logs/
+```
+### mysqlバックアップ
+```
+/backup/sql
+```
 ## ライセンス
 BSDライセンス
 
