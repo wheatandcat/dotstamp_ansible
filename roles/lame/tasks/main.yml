@@ -1,4 +1,3 @@
-## hts_engine_APIがインストール
 - name: check exist lame source file
   become: true
   command: ls -l {{lame_src_dir}}/{{lame_ver}}.tar.gz
