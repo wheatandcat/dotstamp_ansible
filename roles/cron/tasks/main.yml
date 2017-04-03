@@ -14,3 +14,11 @@
       job: "{{ env_tasks }}/contributionTotalFollows/contributionTotalFollows >/dev/null 2>&1"
   tags:
     - cron
+- name: cron remove contribution file
+  become: true
+  cron:
+      name: "remove contribution file"
+      hour: "3"
+      job: "{{ env_tasks }}/removeContribution/removeContribution >/dev/null 2>&1"
+  tags:
+    - cron
