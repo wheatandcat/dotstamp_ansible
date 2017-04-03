@@ -18,7 +18,8 @@
   become: true
   cron:
       name: "remove contribution file"
-      hour: "3"
+      hour: "2"
+      minute: "0"
       job: "{{ env_tasks }}/removeContribution/removeContribution >/dev/null 2>&1"
   tags:
     - cron
