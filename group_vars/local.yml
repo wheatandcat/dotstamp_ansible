@@ -6,3 +6,7 @@ nodejs_npm_global_packages:
   - name: eslint
   - name: esformatter
   - name: webpack-bundle-size-analyzer
+  - name: yarn
+  - name: npm-check-updates
+  - name: getstorybook
+  - name: flow-bin
