@@ -38,11 +38,14 @@
   git: repo=git@github.com:wheatandcat/dotstamp_client.git dest=/vagrant/project/dotstamp_client accept_hostkey=true
   tags:
     - git
+- name: go project directory
+  become: true
+  file: path=/home/vagrant/go/src/github.com/wheatandcat state=directory owner=root group=root mode=0777
 - name: make link dotstamp_server
   become: false
   file:
     src: /vagrant/project/dotstamp_server
-    dest: /home/vagrant/go/src/dotstamp_server
+    dest: /home/vagrant/go/src/github.com/wheatandcat/dotstamp_server
     state: link
   tags:
     - git

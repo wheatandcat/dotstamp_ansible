@@ -23,3 +23,21 @@
       job: "{{ env_tasks }}/removeContribution/removeContribution >/dev/null 2>&1"
   tags:
     - cron
+- name: cron moveTime
+  become: true
+  cron:
+      name: "soundTime"
+      hour: "2"
+      minute: "0"
+      job: "{{ env_tasks }}/soundTime/soundTime >/dev/null 2>&1"
+  tags:
+    - cron
+- name: cron sitemap.xml
+  become: true
+  cron:
+      name: "make sitemap.xml"
+      hour: "2"
+      minute: "0"
+      job: "{{ env_tasks }}/sitemap/sitemap >/dev/null 2>&1"
+  tags:
+    - cron

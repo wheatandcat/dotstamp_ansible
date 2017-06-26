@@ -24,3 +24,5 @@
 - src: futurice.supervisor
 # ffmpeg
 - src: hedii.ffmpeg
+# docker
+- src: jgeusebroek.docker

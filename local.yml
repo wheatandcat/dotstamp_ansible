@@ -3,6 +3,7 @@
   vars_files:
     - group_vars/local.yml
   roles:
+    - jgeusebroek.docker
     - geerlingguy.git
     - geerlingguy.ntp
     - joshualund.golang
