@@ -8,3 +8,4 @@
     - geerlingguy.firewall
     - futurice.pip
     - futurice.supervisor
+    - jgeusebroek.docker

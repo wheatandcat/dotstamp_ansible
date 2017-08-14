@@ -46,5 +46,6 @@ logrotate_scripts:
       - copytruncate
 firewall_allowed_tcp_ports:
   - "80"
+  - "443"
   - "{{ env_ssh_port }}"
   - "{{ env_mysql_port }}"
