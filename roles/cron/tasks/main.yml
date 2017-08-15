@@ -41,3 +41,12 @@
       job: "{{ env_tasks }}/sitemap/sitemap >/dev/null 2>&1"
   tags:
     - cron
+- name: cron https certbot-auto
+  become: true
+  cron:
+      name: "certbot-auto"
+      hour: "4"
+      minute: "0"
+      job: "/home/worker/certbot/certbot-auto renew && systemctl reload nginx >/dev/null 2>&1"
+  tags:
+    - cron

@@ -87,8 +87,14 @@ ansible-playbook -i xxx init.yml
 ```
 /backup/sql/
 ```
-# SSL証明書（https対応）
-A
+# SSL証明書（https対応）(https://github.com/certbot/certbot)
+```
+cd /home/worker
+git clone https://github.com/certbot/certbot
+cd certbot
+./certbot-auto certonly --standalone -t
+# ドメイン入力
+```
 
 ## ライセンス
 BSDライセンス
